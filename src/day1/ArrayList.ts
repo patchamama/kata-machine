@@ -1,27 +1,98 @@
+// export default class ArrayList<T> {
+//     public length: number;
+
+//     constructor() {}
+
+//     prepend(item: T): void {}
+//     insertAt(item: T, idx: number): void {}
+//     append(item: T): void {}
+//     remove(item: T): T | undefined {}
+//     get(idx: number): T | undefined {}
+//     removeAt(idx: number): T | undefined {}
+// }
+
+// ArrayList Implementation in TypeScript
+// The exercise is to implement an ArrayList where elements can be added, removed, and accessed by index.
+// O(n) time complexity for most operations (queue, dequeue,... search), O(n) space complexity. O(1) to push, pop
+// Usage: npx jest ArrayList
+
+
 export default class ArrayList<T> {
-    public length: number;
+  public length: number;
+  private capacity: number;
+  private data: (T | undefined)[];
 
-    
+  constructor(initialCapacity: number = 4) {
+    this.length = 0;
+    this.capacity = initialCapacity;
+    this.data = new Array(this.capacity);
+  }
 
-    constructor() {
+  private resize() {
+    this.capacity *= 2;
+    const newData: (T | undefined)[] = new Array(this.capacity);
+    for (let i = 0; i < this.length; i++) {
+      newData[i] = this.data[i];
+    }
+    this.data = newData;
+  }
+
+  prepend(item: T): void {
+    this.insertAt(item, 0);
+  }
+
+  insertAt(item: T, idx: number): void {
+    if (idx < 0 || idx > this.length) {
+      throw new RangeError("Index out of bounds");
     }
 
-    prepend(item: T): void {
+    if (this.length === this.capacity) {
+      this.resize();
+    }
 
-}
-    insertAt(item: T, idx: number): void {
+    for (let i = this.length; i > idx; i--) {
+      this.data[i] = this.data[i - 1];
+    }
 
-}
-    append(item: T): void {
+    this.data[idx] = item;
+    this.length++;
+  }
 
-}
-    remove(item: T): T | undefined {
+  append(item: T): void {
+    if (this.length === this.capacity) {
+      this.resize();
+    }
 
-}
-    get(idx: number): T | undefined {
+    this.data[this.length] = item;
+    this.length++;
+  }
 
-}
-    removeAt(idx: number): T | undefined {
+  remove(item: T): T | undefined {
+    for (let i = 0; i < this.length; i++) {
+      if (this.data[i] === item) {
+        return this.removeAt(i);
+      }
+    }
+    return undefined;
+  }
 
-}
+  get(idx: number): T | undefined {
+    if (idx < 0 || idx >= this.length) return undefined;
+    return this.data[idx];
+  }
+
+  removeAt(idx: number): T | undefined {
+    if (idx < 0 || idx >= this.length) return undefined;
+
+    const item = this.data[idx];
+
+    for (let i = idx; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+
+    this.length--;
+    this.data[this.length] = undefined; // Clear the removed element
+
+    return item;
+  }
 }
