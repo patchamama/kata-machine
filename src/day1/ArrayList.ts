@@ -13,7 +13,9 @@
 
 // ArrayList Implementation in TypeScript
 // The exercise is to implement an ArrayList where elements can be added, removed, and accessed by index.
-// O(n) time complexity for most operations (queue, dequeue,... search), O(n) space complexity. O(1) to push, pop
+// It is a dynamic array that can grow and shrink in size as needed.
+// It supports operations like prepend, insert at a specific index, append, remove by value, get by index, and remove at a specific index.
+// O(n) time complexity for most operations (queue, dequeue,... search), O(n) space complexity. O(1) to push, pop and peek.
 // Usage: npx jest ArrayList
 
 
