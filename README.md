@@ -1,3 +1,32 @@
+## Exercises (Algorithms)
+
+- [LinearSearchList](./src/day1/LinearSearchList.ts)
+- [BinarySearchList](./src/day1/BinarySearchList.ts)
+- [TwoCrystalBalls](./src/day1/TwoCrystalBalls.ts)
+- [BubbleSort](./src/day1/BubbleSort.ts)
+- [DoublyLinkedList](./src/day1/DoublyLinkedList.ts)
+- [Queue](./src/day1/Queue.ts)
+- [Stack](./src/day1/Stack.ts)
+- [RingBuffer](./src/day1/RingBuffer.ts)
+- [ArrayList](./src/day1/ArrayList.ts)
+
+- [BFSGraphMatrix](./src/day1/BFSGraphMatrix.ts)
+- [BTBFS](./src/day1/BTBFS.ts)
+- [BTInOrder](./src/day1/BTInOrder.ts)
+- [BTPostOrder](./src/day1/BTPostOrder.ts)
+- [BTPreOrder](./src/day1/BTPreOrder.ts)
+- [CompareBinaryTrees](./src/day1/CompareBinaryTrees.ts)
+- [DFSGraphList](./src/day1/DFSGraphList.ts)
+- [DFSOnBST](./src/day1/DFSOnBST.ts)
+- [LRU](./src/day1/LRU.ts)
+- [Map](./src/day1/Map.ts)
+- [MazeSolver](./src/day1/MazeSolver.ts)
+- [MinHeap](./src/day1/MinHeap.ts)
+- [QuickSort](./src/day1/QuickSort.ts)
+- [SinglyLinkedList](./src/day1/SinglyLinkedList.ts)
+- [Trie](./src/day1/Trie.ts)
+
+
 ## Developed live on twitch
 [ThePrimeagen](https://twitch.tv/ThePrimeagen)
 
