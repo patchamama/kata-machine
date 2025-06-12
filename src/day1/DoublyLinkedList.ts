@@ -13,7 +13,7 @@
 
 // Doubly Linked List Implementation in TypeScript
 // This code provides a doubly linked list implementation with methods to prepend, append, insert at a specific index, remove an item, get an item by index, and remove an item by index.
-// Doubly Linked List Implementation in TypeScript
+// Definition: A doubly linked list is a data structure consisting of nodes, where each node contains a value and two pointers: one pointing to the next node and another pointing to the previous node. This allows traversal in both directions (forward and backward) and makes insertion and deletion operations more efficient compared to singly linked lists.
 // O(n) time complexity for most operations, O(1) for prepend and append, O(1) space complexity.
 // Usage: npx jest DoublyLinkedList 
 

@@ -9,6 +9,8 @@
 // Stack Implementation in TypeScript
 // The exercise is to implement a Stack where the last element added is the first one to be removed (LIFO).
 // also known as a Last In First Out (LIFO) data structure.
+// Definition: A stack is a collection of elements that supports two main operations: push (adding an element to the top) and pop (removing the top element). It follows the LIFO principle, meaning the last element added is the first one to be removed.
+// A stack is often used in scenarios where you need to manage function calls, undo operations, or backtracking algorithms.
 // O(n) time complexity for most operations, O(1) for push and pop, O(1) space complexity.
 // Usage: npx jest Stack
 

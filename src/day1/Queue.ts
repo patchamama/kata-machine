@@ -6,9 +6,10 @@
 //     peek(): T | undefined {}
 // }
 
-// Doubly Linked List Implementation in TypeScript
 // The exercise is to implement a Queue where the first element added is the first one to be removed (FIFO).
 // also known as a First In First Out (FIFO) data structure.
+// Definition: A queue is a collection of elements that supports two main operations: enqueue (adding an element to the end) and dequeue (removing an element from the front). It follows the FIFO principle, meaning the first element added is the first one to be removed.
+// A queue is often used in scenarios where you need to manage tasks or requests in the order they arrive, such as in scheduling algorithms, print queues, or breadth-first search algorithms.
 // O(n) time complexity for most operations, O(1) for prepend and append, O(1) space complexity.
 // Usage: npx jest Queue
 
