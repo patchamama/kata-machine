@@ -1,5 +1,7 @@
 // A simple ring buffer implementation in TypeScript
 // O(n) time complexity for most operations, O(1) for push and pop, O(1) space complexity.
+// Definition: A ring buffer (or circular buffer) is a data structure that uses a single, fixed-size buffer as if it were connected end-to-end. It is useful for buffering data streams and implementing queues.
+// normaly used in scenarios where you need a fixed-size buffer that can be reused, such as in audio processing, network data buffering, or producer-consumer problems.
 
 // TODO: Add tests for the RingBuffer class and when the buffer is full, increase the array capacity (create a copy... )
 
