@@ -33,11 +33,12 @@ export default function quick_sort(arr: number[]): void {
 
         // Place the pivot element at the correct position
         // [arr[idx + 1], arr[high]] = [arr[high], arr[idx + 1]]; // final swap
-        const temp = arr[idx + 1];
-        arr[idx + 1] = arr[high];
+        idx++;
+        const temp = arr[idx];
+        arr[idx] = arr[high];
         arr[high] = temp; // final swap
         // Return the index of the pivot element
-        return idx + 1;
+        return idx;
     }
 
     quickSortRecursive(0, arr.length - 1);
