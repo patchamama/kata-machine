@@ -9,6 +9,7 @@
 - [Stack](./src/day1/Stack.ts)
 - [RingBuffer](./src/day1/RingBuffer.ts)
 - [ArrayList](./src/day1/ArrayList.ts)
+- [QuickSort](./src/day1/QuickSort.ts)
 
 - [BFSGraphMatrix](./src/day1/BFSGraphMatrix.ts)
 - [BTBFS](./src/day1/BTBFS.ts)
@@ -22,7 +23,6 @@
 - [Map](./src/day1/Map.ts)
 - [MazeSolver](./src/day1/MazeSolver.ts)
 - [MinHeap](./src/day1/MinHeap.ts)
-- [QuickSort](./src/day1/QuickSort.ts)
 - [SinglyLinkedList](./src/day1/SinglyLinkedList.ts)
 - [Trie](./src/day1/Trie.ts)
 
