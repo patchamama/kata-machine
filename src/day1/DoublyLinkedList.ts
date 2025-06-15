@@ -15,130 +15,158 @@
 // This code provides a doubly linked list implementation with methods to prepend, append, insert at a specific index, remove an item, get an item by index, and remove an item by index.
 // Definition: A doubly linked list is a data structure consisting of nodes, where each node contains a value and two pointers: one pointing to the next node and another pointing to the previous node. This allows traversal in both directions (forward and backward) and makes insertion and deletion operations more efficient compared to singly linked lists.
 // O(n) time complexity for most operations, O(1) for prepend and append, O(1) space complexity.
-// Usage: npx jest DoublyLinkedList 
+// Usage: npx jest DoublyLinkedList
 
 export default class DoublyLinkedList<T> {
-  public length: number;
-  private head?: Node<T>;
-  private tail?: Node<T>;
+    public length: number;
+    private head?: Node<T>;
+    private tail?: Node<T>;
 
-  constructor() {
-    this.length = 0;
-    this.head = undefined;
-    this.tail = undefined;
-  }
-
-  prepend(item: T): void {
-    const node = new Node(item);  // = {value: item, prev: undefined, next: undefined} as Node<T>;
-    this.length++;
-
-    if (!this.head) {
-      this.head = this.tail = node;
-      return;
+    constructor() {
+        this.length = 0;
+        this.head = undefined;
+        this.tail = undefined;
     }
 
-    node.next = this.head;
-    this.head.prev = node;
-    this.head = node;
-  }
+    // Prepend an item to the start of the list
+    // Complexity: O(1) for prepend, O(n) for insertAt, remove, get, and removeAt
+    prepend(item: T): void {
+        const node = new Node(item); // = {value: item, prev: undefined, next: undefined} as Node<T>;
+        this.length++;
 
-  append(item: T): void {
-    const node = new Node(item); // = {value: item} as Node<T>;
-    this.length++;
+        if (!this.head) {
+            this.head = this.tail = node;
+            return;
+        }
 
-    if (!this.tail) {
-      this.head = this.tail = node;
-      return;
+        node.next = this.head;
+        this.head.prev = node;
+        this.head = node;
     }
 
-    node.prev = this.tail;
-    this.tail.next = node;
-    this.tail = node;
-  }
+    append(item: T): void {
+        const node = new Node(item); // = {value: item} as Node<T>;
+        this.length++;
 
-  insertAt(item: T, idx: number): void {
-    if (idx < 0 || idx > this.length) throw new RangeError('Index out of bounds');
+        if (!this.tail) {
+            this.head = this.tail = node;
+            return;
+        }
 
-    if (idx === 0) return this.prepend(item);
-    if (idx === this.length) return this.append(item);
-
-    this.length++;
-
-    const node = new Node(item);
-    let curr = this.head!;
-    for (let i = 0; i < idx; i++) {
-      curr = curr.next!;
+        node.prev = this.tail;
+        this.tail.next = node;
+        this.tail = node;
     }
 
-    node.prev = curr.prev;
-    node.next = curr;
+    insertAt(item: T, idx: number): void {
+        if (idx < 0 || idx > this.length)
+            throw new RangeError("Index out of bounds");
 
-    if (curr.prev) curr.prev.next = node;
-    curr.prev = node;
-  }
+        if (idx === 0) return this.prepend(item);
+        if (idx === this.length) return this.append(item);
 
-  remove(item: T): T | undefined {
-    let curr = this.head;
-    while (curr) {
-      if (curr.value === item) {
-        return this.removeNode(curr);
-      }
-      curr = curr.next;
-    }
-    return undefined;
-  }
+        this.length++;
 
-  get(idx: number): T | undefined {
-    if (idx < 0 || idx >= this.length) return undefined;
-    let curr: Node<T> | undefined;
-    if (idx < this.length / 2) {
-      curr = this.head;
-      for (let i = 0; i < idx; i++) curr = curr!.next;
-    } else {
-      curr = this.tail;
-      for (let i = this.length - 1; i > idx; i--) curr = curr!.prev;
-    }
-    return curr?.value;
-  }
+        let curr = this.head!;
+        for (let i = 0; curr && i < idx; i++) {
+            curr = curr.next!;
+        }
 
-  removeAt(idx: number): T | undefined {
-    if (idx < 0 || idx >= this.length) return undefined;
+        curr = curr as Node<T>; // Ensure curr is not undefined
 
-    let curr: Node<T> | undefined;
-    if (idx === 0) {
-      curr = this.head;
-    } else if (idx === this.length - 1) {
-      curr = this.tail;
-    } else if (idx < this.length / 2) {
-      curr = this.head;
-      for (let i = 0; i < idx; i++) curr = curr!.next;
-    } else {
-      curr = this.tail;
-      for (let i = this.length - 1; i > idx; i--) curr = curr!.prev;
+        const node = new Node(item); // = {value: item, prev: undefined, next: undefined} as Node<T>;
+        node.prev = curr.prev;
+        node.next = curr;
+        curr.prev = node;
+
+        if (curr.prev) curr.prev.next = node;
     }
 
-    return curr ? this.removeNode(curr) : undefined;
-  }
+    remove(item: T): T | undefined {
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === item) {
+                return this.removeNode(curr);
+            }
+            curr = curr.next;
+        }
 
-  private removeNode(node: Node<T>): T {
-    this.length--;
+        if (this.length === 0) {
+            this.head = this.tail = undefined;
+        }
 
-    if (node.prev) node.prev.next = node.next;
-    else this.head = node.next;
+        return undefined;
+    }
 
-    if (node.next) node.next.prev = node.prev;
-    else this.tail = node.prev;
+    get(idx: number): T | undefined {
+        if (idx < 0 || idx >= this.length) return undefined;
+        let curr: Node<T> | undefined;
+        if (idx < this.length / 2) {
+            curr = this.head;
+            for (let i = 0; i < idx; i++) curr = curr!.next;
+        } else {
+            curr = this.tail;
+            for (let i = this.length - 1; i > idx; i--) curr = curr!.prev;
+        }
+        return curr?.value;
+    }
 
-    return node.value;
-  }
+    removeAt(idx: number): T | undefined {
+        if (idx < 0 || idx >= this.length) return undefined;
+
+        let curr: Node<T> | undefined;
+        if (idx === 0) {
+            curr = this.head;
+        } else if (idx === this.length - 1) {
+            curr = this.tail;
+        } else if (idx < this.length / 2) {
+            curr = this.head;
+            for (let i = 0; i < idx; i++) curr = curr!.next;
+        } else {
+            curr = this.tail;
+            for (let i = this.length - 1; i > idx; i--) curr = curr!.prev;
+        }
+
+        return curr ? this.removeNode(curr) : undefined;
+    }
+
+    private removeNode(node: Node<T>): T {
+        this.length--;
+
+        if (node.prev) node.prev.next = node.next;
+        else this.head = node.next;
+
+        if (node.next) node.next.prev = node.prev;
+        else this.tail = node.prev;
+
+        return node.value;
+    }
+
+    private getAt(idx: number): Node<T> | undefined {
+        let curr = this.head;
+        for (let i = 0; curr && i < idx; ++i) {
+            curr = curr?.next;
+        }
+        return curr;
+    }
+
+    private debug() {
+        let curr = this.head;
+        let out = "";
+        for (let i = 0; curr && i < this.length; ++i) {
+            out += `${i} => ${curr.value} `;
+            curr = curr?.next;
+        }
+        console.log(out);
+    }
 }
 
 class Node<T> {
-  value: T;
-  prev?: Node<T>;
-  next?: Node<T>;
+    value: T;
+    prev?: Node<T>;
+    next?: Node<T>;
 
-  constructor(value: T) {
-    this.value = value;
-  }
+    constructor(value: T) {
+        this.value = value;
+    }
 }
