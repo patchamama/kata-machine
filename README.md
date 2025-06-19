@@ -21,9 +21,12 @@
 
 ![BTComparison](./imgs/BTComparison.png)
 
+- [Depth-First Search on BinaryTrees - DFSOnBST](./src/day1/DFSOnBST.ts)
+
+
 - [BFSGraphMatrix](./src/day1/BFSGraphMatrix.ts)
 - [DFSGraphList](./src/day1/DFSGraphList.ts)
-- [DFSOnBST](./src/day1/DFSOnBST.ts)
+
 - [LRU](./src/day1/LRU.ts)
 - [Map](./src/day1/Map.ts)
 - [MazeSolver](./src/day1/MazeSolver.ts)
