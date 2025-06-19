@@ -1,5 +1,6 @@
 // Description: 
 // Test usage: npx jest BTPreOrder
+// npx jest Order
 
 function walk(curr: BinaryNode<number> | null, path: number[]): void {
     if (!curr) return;

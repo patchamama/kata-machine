@@ -13,10 +13,15 @@
 - [BinaryTreePreOrder](./src/day1/BTPreOrder.ts)
 - [BinaryTreeInOrder](./src/day1/BTInOrder.ts)
 - [BinaryTreePostOrder](./src/day1/BTPostOrder.ts)
-- [BinaryTree BTBFS](./src/day1/BTBFS.ts)
+- [BinaryTree Breath First Search - BTBFS](./src/day1/BTBFS.ts)
+
+![BTBFS](./imgs/BFS.png)
+
+- [CompareBinaryTrees](./src/day1/CompareBinaryTrees.ts)
+
+![BTComparison](./imgs/BTComparison.png)
 
 - [BFSGraphMatrix](./src/day1/BFSGraphMatrix.ts)
-- [CompareBinaryTrees](./src/day1/CompareBinaryTrees.ts)
 - [DFSGraphList](./src/day1/DFSGraphList.ts)
 - [DFSOnBST](./src/day1/DFSOnBST.ts)
 - [LRU](./src/day1/LRU.ts)
